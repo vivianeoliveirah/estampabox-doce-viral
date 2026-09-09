@@ -1,0 +1,155 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Doce Viral — identidade: vinho, marfim, vermelho morango e dourado.
+ * Todos os valores em oklch. Tokens semânticos apenas.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-wine: var(--wine);
+  --color-wine-foreground: var(--wine-foreground);
+  --color-wine-soft: var(--wine-soft);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Karla", system-ui, sans-serif;
+  --shadow-soft: 0 18px 50px -24px color-mix(in oklab, var(--wine) 55%, transparent);
+  --shadow-card: 0 10px 30px -18px color-mix(in oklab, var(--wine) 45%, transparent);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.963 0.014 84);
+  --foreground: oklch(0.19 0.05 12);
+  --card: oklch(0.983 0.008 84);
+  --card-foreground: oklch(0.19 0.05 12);
+  --popover: oklch(0.983 0.008 84);
+  --popover-foreground: oklch(0.19 0.05 12);
+  --primary: oklch(0.52 0.203 20);
+  --primary-foreground: oklch(0.978 0.01 84);
+  --secondary: oklch(0.918 0.023 82);
+  --secondary-foreground: oklch(0.24 0.075 14);
+  --muted: oklch(0.918 0.023 82);
+  --muted-foreground: oklch(0.44 0.045 16);
+  --accent: oklch(0.918 0.023 82);
+  --accent-foreground: oklch(0.24 0.075 14);
+  --wine: oklch(0.21 0.077 14);
+  --wine-foreground: oklch(0.968 0.014 84);
+  --wine-soft: oklch(0.285 0.098 12);
+  --gold: oklch(0.66 0.098 82);
+  --gold-foreground: oklch(0.19 0.05 12);
+  --destructive: oklch(0.52 0.203 20);
+  --destructive-foreground: oklch(0.978 0.01 84);
+  --border: oklch(0.878 0.028 80);
+  --input: oklch(0.878 0.028 80);
+  --ring: oklch(0.52 0.203 20);
+  --sidebar: oklch(0.963 0.014 84);
+  --sidebar-foreground: oklch(0.19 0.05 12);
+  --sidebar-primary: oklch(0.52 0.203 20);
+  --sidebar-primary-foreground: oklch(0.978 0.01 84);
+  --sidebar-accent: oklch(0.918 0.023 82);
+  --sidebar-accent-foreground: oklch(0.24 0.075 14);
+  --sidebar-border: oklch(0.878 0.028 80);
+  --sidebar-ring: oklch(0.52 0.203 20);
+}
+
+.dark {
+  --background: oklch(0.19 0.05 12);
+  --foreground: oklch(0.968 0.014 84);
+  --card: oklch(0.24 0.075 14);
+  --card-foreground: oklch(0.968 0.014 84);
+  --popover: oklch(0.24 0.075 14);
+  --popover-foreground: oklch(0.968 0.014 84);
+  --primary: oklch(0.6 0.19 22);
+  --primary-foreground: oklch(0.978 0.01 84);
+  --secondary: oklch(0.285 0.098 12);
+  --secondary-foreground: oklch(0.968 0.014 84);
+  --muted: oklch(0.285 0.098 12);
+  --muted-foreground: oklch(0.78 0.03 80);
+  --accent: oklch(0.285 0.098 12);
+  --accent-foreground: oklch(0.968 0.014 84);
+  --wine: oklch(0.16 0.055 12);
+  --wine-foreground: oklch(0.968 0.014 84);
+  --wine-soft: oklch(0.24 0.075 14);
+  --gold: oklch(0.72 0.1 82);
+  --gold-foreground: oklch(0.19 0.05 12);
+  --destructive: oklch(0.6 0.19 22);
+  --destructive-foreground: oklch(0.978 0.01 84);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.6 0.19 22);
+  --sidebar: oklch(0.19 0.05 12);
+  --sidebar-foreground: oklch(0.968 0.014 84);
+  --sidebar-primary: oklch(0.6 0.19 22);
+  --sidebar-primary-foreground: oklch(0.978 0.01 84);
+  --sidebar-accent: oklch(0.285 0.098 12);
+  --sidebar-accent-foreground: oklch(0.968 0.014 84);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.6 0.19 22);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
