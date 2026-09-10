@@ -10,6 +10,17 @@ export default defineConfig({
   vite: {
     build: { cssMinify: false },
   },
+  nitro: {
+    hooks: {
+      "build:before": (nitro) => {
+        for (const asset of nitro.options.serverAssets) {
+          if (asset.baseName === "server") {
+            asset.ignore = [...(asset.ignore ?? []), "styles.css"];
+          }
+        }
+      },
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
