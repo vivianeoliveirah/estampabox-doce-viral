@@ -8,6 +8,11 @@ export default defineConfig({
   },
 
   nitro: {
+    renderer: {
+      handler: "node_modules/nitro/dist/runtime/internal/vite/ssr-renderer.mjs",
+      template: "index.html",
+      static: false,
+    },
     modules: [
       (nitro) => {
         nitro.hooks.hook("build:before", (nitro) => {
