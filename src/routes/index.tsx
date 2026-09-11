@@ -1,5 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Calculator, Check, FileText, Megaphone, ShieldCheck } from "lucide-react";
+import {
+  Calculator,
+  Check,
+  FileText,
+  Megaphone,
+  ShieldCheck,
+} from "lucide-react";
 import { useState } from "react";
 
 import heroImg from "@/assets/hero-morango.jpg";
@@ -93,8 +99,16 @@ const entregas = [
 
 const etapas = [
   { n: "1", t: "Escolha", d: "Comece com uma ou duas versões para testar." },
-  { n: "2", t: "Prepare e registre", d: "Pese os ingredientes e anote o rendimento real." },
-  { n: "3", t: "Calcule e divulgue", d: "Atualize a planilha e use os textos prontos." },
+  {
+    n: "2",
+    t: "Prepare e registre",
+    d: "Pese os ingredientes e anote o rendimento real.",
+  },
+  {
+    n: "3",
+    t: "Calcule e divulgue",
+    d: "Atualize a planilha e use os textos prontos.",
+  },
 ];
 
 const confianca = [
@@ -177,11 +191,13 @@ function Index() {
           <div>
             <p className="eyebrow text-gold">Doce Viral • Edição 01</p>
             <h1 className="mt-5 font-display text-4xl leading-[1.08] md:text-6xl">
-              Do morango viral ao seu <em className="text-gold">mini cardápio</em>
+              Do morango viral ao seu{" "}
+              <em className="text-gold">mini cardápio</em>
             </h1>
             <p className="mt-5 max-w-md text-base leading-relaxed text-wine-foreground/85">
-              Seis versões do Morango Cravejado, fichas para registrar seu lote, calculadora
-              automática de preços e material para organizar a divulgação.
+              Seis versões do Morango Cravejado, fichas para registrar seu lote,
+              calculadora automática de preços e material para organizar a
+              divulgação.
             </p>
             <ul className="mt-7 space-y-3 text-sm">
               {[
@@ -230,14 +246,16 @@ function Index() {
       <main>
         {/* Dor */}
         <section className="mx-auto max-w-3xl px-6 py-20 text-center">
-          <p className="eyebrow text-primary">Uma tendência, várias possibilidades</p>
+          <p className="eyebrow text-primary">
+            Uma tendência, várias possibilidades
+          </p>
           <h2 className="mt-4 font-display text-3xl leading-tight md:text-4xl">
             Receita solta na internet não monta um negócio
           </h2>
           <p className="mt-4 text-muted-foreground">
-            O Doce Viral organiza o caminho inteiro: preparar as bases, escolher os produtos,
-            registrar o rendimento real do seu lote e simular um preço com base nos custos e no
-            mercado local.
+            O Doce Viral organiza o caminho inteiro: preparar as bases, escolher
+            os produtos, registrar o rendimento real do seu lote e simular um
+            preço com base nos custos e no mercado local.
           </p>
         </section>
 
@@ -264,13 +282,16 @@ function Index() {
                   <div className="p-5">
                     <span className="eyebrow text-gold">{p.n}</span>
                     <h3 className="mt-1 font-display text-xl">{p.nome}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{p.txt}</p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      {p.txt}
+                    </p>
                   </div>
                 </article>
               ))}
             </div>
             <p className="mt-8 text-xs text-muted-foreground">
-              Imagens ilustrativas. O resultado varia conforme ingredientes, técnica e acabamento.
+              Imagens ilustrativas. O resultado varia conforme ingredientes,
+              técnica e acabamento.
             </p>
             <div className="mt-10 text-center">
               <button
@@ -287,6 +308,60 @@ function Index() {
           </div>
         </section>
 
+        {/* Prévia real dos materiais */}
+        <section className="overflow-hidden bg-background py-20">
+          <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-[0.8fr_1.4fr]">
+            <div>
+              <p className="eyebrow text-primary">Veja antes de comprar</p>
+              <h2 className="mt-3 font-display text-3xl leading-tight md:text-4xl">
+                Estes são os materiais que você recebe
+              </h2>
+              <p className="mt-5 leading-relaxed text-muted-foreground">
+                Um guia completo em PDF, uma calculadora editável em Excel e um
+                kit de divulgação pronto para adaptar ao seu negócio.
+              </p>
+              <ul className="mt-6 space-y-3 text-sm">
+                {[
+                  "Guia Premium com 28 páginas",
+                  "Calculadora automática editável",
+                  "Kit de divulgação com 10 páginas",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <Check
+                      aria-hidden="true"
+                      className="h-5 w-5 shrink-0 text-primary"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                onClick={comprar}
+                className="mt-8 rounded-full bg-primary px-8 py-4 text-sm font-bold tracking-wide text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+              >
+                {CTA_LABEL}
+              </button>
+            </div>
+
+            <figure className="relative">
+              <div className="overflow-hidden rounded-3xl border border-border bg-card p-2 shadow-soft md:p-3">
+                <img
+                src="/mockup-materiais.webp"
+                  alt="Guia Premium, Calculadora Automática em Excel e Kit de Divulgação do Doce Viral"
+                  width={1536}
+                  height={1024}
+                  loading="lazy"
+                  className="aspect-[3/2] w-full rounded-2xl object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 text-center text-xs text-muted-foreground">
+                Prévia dos arquivos digitais incluídos na compra.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
         {/* Entregas */}
         <section id="conteudo" className="bg-wine py-20 text-wine-foreground">
           <div className="mx-auto max-w-6xl px-6">
@@ -296,13 +371,22 @@ function Index() {
             </h2>
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {entregas.map((e) => (
-                <article key={e.tag} className="rounded-2xl border border-gold/25 bg-wine-soft p-7">
+                <article
+                  key={e.tag}
+                  className="rounded-2xl border border-gold/25 bg-wine-soft p-7"
+                >
                   <div className="flex items-center justify-between gap-4">
                     <span className="eyebrow text-gold">{e.tag}</span>
-                    <e.icon aria-hidden="true" className="h-6 w-6 text-gold" strokeWidth={1.7} />
+                    <e.icon
+                      aria-hidden="true"
+                      className="h-6 w-6 text-gold"
+                      strokeWidth={1.7}
+                    />
                   </div>
                   <h3 className="mt-2 font-display text-2xl">{e.titulo}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-wine-foreground/80">{e.txt}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-wine-foreground/80">
+                    {e.txt}
+                  </p>
                 </article>
               ))}
             </div>
@@ -334,7 +418,10 @@ function Index() {
           </h2>
           <ol className="mt-10 grid gap-6 md:grid-cols-3">
             {etapas.map((e) => (
-              <li key={e.n} className="rounded-2xl border border-border bg-card p-7">
+              <li
+                key={e.n}
+                className="rounded-2xl border border-border bg-card p-7"
+              >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-lg text-primary-foreground">
                   {e.n}
                 </span>
@@ -355,7 +442,9 @@ function Index() {
                 </div>
                 <div>
                   <h3 className="font-display text-lg">{item.titulo}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.texto}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    {item.texto}
+                  </p>
                 </div>
               </div>
             ))}
@@ -371,12 +460,15 @@ function Index() {
                 Doce Viral — Morango Cravejado
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-wine-foreground/85">
-                Guia Premium de 28 páginas + Calculadora Automática + Kit de Divulgação. Pagamento
-                único, com acesso após a confirmação e garantia de 7 dias.
+                Guia Premium de 28 páginas + Calculadora Automática + Kit de
+                Divulgação. Pagamento único, com acesso após a confirmação e
+                garantia de 7 dias.
               </p>
             </div>
             <div className="rounded-2xl bg-background p-7 text-center text-foreground">
-              <small className="eyebrow text-muted-foreground">pagamento único</small>
+              <small className="eyebrow text-muted-foreground">
+                pagamento único
+              </small>
               <p className="mt-2 font-display text-5xl text-primary">
                 <sup className="align-super text-lg">R$</sup>19
                 <small className="text-2xl">,90</small>
@@ -398,14 +490,18 @@ function Index() {
         {/* FAQ */}
         <section className="mx-auto max-w-3xl px-6 pb-24">
           <p className="eyebrow text-primary">Dúvidas frequentes</p>
-          <h2 className="mt-3 font-display text-3xl leading-tight md:text-4xl">Antes de começar</h2>
+          <h2 className="mt-3 font-display text-3xl leading-tight md:text-4xl">
+            Antes de começar
+          </h2>
           <div className="mt-8 space-y-3">
             {faq.map((f) => (
               <details
                 key={f.q}
                 className="group rounded-xl border border-border bg-card p-5 [&_summary::-webkit-details-marker]:hidden"
               >
-                <summary className="cursor-pointer list-none font-display text-lg">{f.q}</summary>
+                <summary className="cursor-pointer list-none font-display text-lg">
+                  {f.q}
+                </summary>
                 <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
               </details>
             ))}
@@ -425,7 +521,9 @@ function Index() {
           />
           <div className="text-wine-foreground/70 md:text-right">
             <p>Doce Viral é uma publicação digital da EstampaBox.</p>
-            <p className="mt-1 text-xs">© 2026 EstampaBox. Todos os direitos reservados.</p>
+            <p className="mt-1 text-xs">
+              © 2026 EstampaBox. Todos os direitos reservados.
+            </p>
           </div>
         </div>
       </footer>
@@ -453,10 +551,12 @@ function Index() {
             className="w-full max-w-md rounded-2xl bg-card p-8 text-center shadow-soft"
           >
             <p className="eyebrow text-primary">Quase lá</p>
-            <h2 className="mt-2 font-display text-2xl">Checkout em configuração</h2>
+            <h2 className="mt-2 font-display text-2xl">
+              Checkout em configuração
+            </h2>
             <p className="mt-3 text-sm text-muted-foreground">
-              O material está pronto. Assim que você me passar o link de pagamento, este botão vai
-              levar direto para a compra.
+              O material está pronto. Assim que você me passar o link de
+              pagamento, este botão vai levar direto para a compra.
             </p>
             <button
               type="button"
