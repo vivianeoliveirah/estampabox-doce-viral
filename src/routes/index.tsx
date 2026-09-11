@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Calculator, Check, FileText, Megaphone, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 
 import heroImg from "@/assets/hero-morango.jpg";
@@ -28,28 +29,62 @@ export const Route = createFileRoute("/")({
 });
 
 const CHECKOUT_URL = "";
+const CTA_LABEL = "Quero acessar por R$ 19,90";
 
 const produtos = [
-  { n: "01", nome: "Morango Cravejado", img: p1, txt: "Morango, brigadeiro branco, cobertura e lascas crocantes." },
-  { n: "02", nome: "Picolé Cravejado", img: p2, txt: "Formato gelado com cobertura branca e acabamento cravejado." },
-  { n: "03", nome: "Geladinho Cravejado", img: p3, txt: "Base cremosa em saquinho com finalização cravejada." },
-  { n: "04", nome: "Casquinha Cravejada", img: p4, txt: "Cone crocante, creme de morango e cristais de caramelo." },
-  { n: "05", nome: "Copo Cravejado", img: p5, txt: "Camadas de creme e fruta com cobertura crocante." },
-  { n: "06", nome: "Travessa Cravejada", img: p6, txt: "Versão para compartilhar, com creme, morangos e cobertura." },
+  {
+    n: "01",
+    nome: "Morango Cravejado",
+    img: p1,
+    txt: "Morango, brigadeiro branco, cobertura e lascas crocantes.",
+  },
+  {
+    n: "02",
+    nome: "Picolé Cravejado",
+    img: p2,
+    txt: "Formato gelado com cobertura branca e acabamento cravejado.",
+  },
+  {
+    n: "03",
+    nome: "Geladinho Cravejado",
+    img: p3,
+    txt: "Base cremosa em saquinho com finalização cravejada.",
+  },
+  {
+    n: "04",
+    nome: "Casquinha Cravejada",
+    img: p4,
+    txt: "Cone crocante, creme de morango e cristais de caramelo.",
+  },
+  {
+    n: "05",
+    nome: "Copo Cravejado",
+    img: p5,
+    txt: "Camadas de creme e fruta com cobertura crocante.",
+  },
+  {
+    n: "06",
+    nome: "Travessa Cravejada",
+    img: p6,
+    txt: "Versão para compartilhar, com creme, morangos e cobertura.",
+  },
 ];
 
 const entregas = [
   {
+    icon: FileText,
     tag: "PRODUTO PRINCIPAL",
     titulo: "Guia Premium — 28 páginas",
     txt: "Higiene e segurança, as 3 bases, os 6 produtos com formulação, passo a passo, testes de qualidade, fichas de custo e caderno de padronização.",
   },
   {
+    icon: Calculator,
     tag: "BÔNUS 1",
     titulo: "Calculadora automática",
     txt: "Já preenchida com formulações e rendimentos de referência. Você informa seus valores e ela simula custo, preço sugerido, lucro bruto e margem.",
   },
   {
+    icon: Megaphone,
     tag: "BÔNUS 2",
     titulo: "Kit de divulgação — 10 páginas",
     txt: "Mini cardápio, cartaz de encomenda, 10 textos prontos, roteiro de fotos e folha de controle de pedidos.",
@@ -62,7 +97,29 @@ const etapas = [
   { n: "3", t: "Calcule e divulgue", d: "Atualize a planilha e use os textos prontos." },
 ];
 
+const confianca = [
+  {
+    icon: ShieldCheck,
+    titulo: "7 dias de garantia",
+    texto: "Compre e avalie o material com tranquilidade.",
+  },
+  {
+    icon: Check,
+    titulo: "Pagamento único",
+    texto: "Sem assinatura ou cobrança mensal.",
+  },
+  {
+    icon: FileText,
+    titulo: "Acesso digital",
+    texto: "Materiais para abrir no celular ou computador.",
+  },
+];
+
 const faq = [
+  {
+    q: "Tenho garantia?",
+    a: "Sim. Você pode solicitar o reembolso em até 7 dias após a compra, conforme as regras da plataforma de pagamento.",
+  },
   {
     q: "O material é físico?",
     a: "Não. É 100% digital e abre no celular, computador ou tablet.",
@@ -93,7 +150,7 @@ function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background pb-20 text-foreground md:pb-0">
       <p className="bg-wine px-4 py-2 text-center text-xs tracking-wide text-wine-foreground">
         Produto digital • acesso liberado após a confirmação do pagamento
       </p>
@@ -108,7 +165,10 @@ function Index() {
             height={56}
             className="h-14 w-14 rounded-full"
           />
-          <a href="#conteudo" className="text-sm text-wine-foreground/80 transition-colors hover:text-gold">
+          <a
+            href="#conteudo"
+            className="text-sm text-wine-foreground/80 transition-colors hover:text-gold"
+          >
             O que você recebe
           </a>
         </nav>
@@ -141,9 +201,11 @@ function Index() {
                 onClick={comprar}
                 className="rounded-full bg-primary px-8 py-4 text-sm font-bold tracking-wide text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
               >
-                Quero meu acesso por R$ 19,90
+                {CTA_LABEL}
               </button>
-              <span className="text-xs text-wine-foreground/70">Compra segura • acesso digital</span>
+              <span className="text-xs text-wine-foreground/70">
+                Compra segura • acesso digital
+              </span>
             </div>
           </div>
 
@@ -210,6 +272,18 @@ function Index() {
             <p className="mt-8 text-xs text-muted-foreground">
               Imagens ilustrativas. O resultado varia conforme ingredientes, técnica e acabamento.
             </p>
+            <div className="mt-10 text-center">
+              <button
+                type="button"
+                onClick={comprar}
+                className="rounded-full bg-primary px-8 py-4 text-sm font-bold tracking-wide text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+              >
+                {CTA_LABEL}
+              </button>
+              <p className="mt-3 text-xs text-muted-foreground">
+                Pagamento único • produto digital • acesso após a confirmação
+              </p>
+            </div>
           </div>
         </section>
 
@@ -222,15 +296,32 @@ function Index() {
             </h2>
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {entregas.map((e) => (
-                <article
-                  key={e.tag}
-                  className="rounded-2xl border border-gold/25 bg-wine-soft p-7"
-                >
-                  <span className="eyebrow text-gold">{e.tag}</span>
+                <article key={e.tag} className="rounded-2xl border border-gold/25 bg-wine-soft p-7">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="eyebrow text-gold">{e.tag}</span>
+                    <e.icon aria-hidden="true" className="h-6 w-6 text-gold" strokeWidth={1.7} />
+                  </div>
                   <h3 className="mt-2 font-display text-2xl">{e.titulo}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-wine-foreground/80">{e.txt}</p>
                 </article>
               ))}
+            </div>
+            <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-2xl border border-gold/25 bg-wine-soft px-6 py-6 text-center md:flex-row md:text-left">
+              <div>
+                <p className="font-display text-xl">
+                  Os 3 materiais ficam disponíveis após a confirmação
+                </p>
+                <p className="mt-1 text-sm text-wine-foreground/75">
+                  Guia em PDF, calculadora em Excel e kit de divulgação em PDF.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={comprar}
+                className="shrink-0 rounded-full bg-primary px-7 py-4 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5"
+              >
+                {CTA_LABEL}
+              </button>
             </div>
           </div>
         </section>
@@ -254,6 +345,23 @@ function Index() {
           </ol>
         </section>
 
+        {/* Confiança */}
+        <section className="border-y border-border bg-card">
+          <div className="mx-auto grid max-w-6xl gap-6 px-6 py-9 sm:grid-cols-3">
+            {confianca.map((item) => (
+              <div key={item.titulo} className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
+                  <item.icon aria-hidden="true" className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-display text-lg">{item.titulo}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.texto}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Oferta */}
         <section className="px-6 pb-20">
           <div className="mx-auto grid max-w-5xl items-center gap-10 rounded-3xl bg-wine p-8 text-wine-foreground shadow-soft md:grid-cols-[1.2fr_1fr] md:p-12">
@@ -263,24 +371,25 @@ function Index() {
                 Doce Viral — Morango Cravejado
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-wine-foreground/85">
-                Guia Premium de 28 páginas + Calculadora Automática + Kit de Divulgação.
-                Pagamento único, com acesso após a confirmação.
+                Guia Premium de 28 páginas + Calculadora Automática + Kit de Divulgação. Pagamento
+                único, com acesso após a confirmação e garantia de 7 dias.
               </p>
             </div>
             <div className="rounded-2xl bg-background p-7 text-center text-foreground">
               <small className="eyebrow text-muted-foreground">pagamento único</small>
               <p className="mt-2 font-display text-5xl text-primary">
-                <sup className="align-super text-lg">R$</sup>19<small className="text-2xl">,90</small>
+                <sup className="align-super text-lg">R$</sup>19
+                <small className="text-2xl">,90</small>
               </p>
               <button
                 type="button"
                 onClick={comprar}
                 className="mt-5 w-full rounded-full bg-primary px-6 py-4 text-sm font-bold tracking-wide text-primary-foreground transition-transform hover:-translate-y-0.5"
               >
-                Quero receber agora
+                {CTA_LABEL}
               </button>
               <span className="mt-3 block text-xs text-muted-foreground">
-                Acesso após a confirmação do pagamento
+                Compra segura • acesso digital • 7 dias de garantia
               </span>
             </div>
           </div>
@@ -314,11 +423,22 @@ function Index() {
             loading="lazy"
             className="h-12 w-12 rounded-full"
           />
-          <p className="text-wine-foreground/70">
-            Conteúdo digital para transformar ideias em projetos práticos.
-          </p>
+          <div className="text-wine-foreground/70 md:text-right">
+            <p>Doce Viral é uma publicação digital da EstampaBox.</p>
+            <p className="mt-1 text-xs">© 2026 EstampaBox. Todos os direitos reservados.</p>
+          </div>
         </div>
       </footer>
+
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 shadow-soft backdrop-blur md:hidden">
+        <button
+          type="button"
+          onClick={comprar}
+          className="w-full rounded-full bg-primary px-5 py-3.5 text-sm font-bold text-primary-foreground"
+        >
+          Acessar agora • R$ 19,90
+        </button>
+      </div>
 
       {avisoAberto && (
         <div
