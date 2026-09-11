@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
-import logoAsset from "@/assets/doce-viral-logo.png.asset.json";
 import heroImg from "@/assets/hero-morango.jpg";
 import p1 from "@/assets/produto-1.jpg";
 import p2 from "@/assets/produto-2.jpg";
@@ -103,7 +102,7 @@ function Index() {
       <header className="bg-wine text-wine-foreground">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
           <img
-            src={logoAsset.url}
+            src="/logoDoceViral.png"
             alt="Doce Viral"
             width={56}
             height={56}
@@ -308,7 +307,7 @@ function Index() {
       <footer className="bg-wine py-12 text-wine-foreground">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 text-sm md:flex-row md:items-center md:justify-between">
           <img
-            src={logoAsset.url}
+            src="/logoDoceViral.png"
             alt="Doce Viral"
             width={48}
             height={48}
