@@ -6,7 +6,6 @@ import {
   Megaphone,
   ShieldCheck,
 } from "lucide-react";
-import { useState } from "react";
 
 import heroImg from "@/assets/hero-morango.jpg";
 import p1 from "@/assets/produto-1.jpg";
@@ -34,7 +33,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const CHECKOUT_URL = "";
+const CHECKOUT_URL = "https://pay.cakto.com.br/3bhymbp_1100647";
 const CTA_LABEL = "Quero acessar por R$ 19,90";
 
 const produtos = [
@@ -153,14 +152,8 @@ const faq = [
 ];
 
 function Index() {
-  const [avisoAberto, setAvisoAberto] = useState(false);
-
   const comprar = () => {
-    if (CHECKOUT_URL) {
-      window.location.href = CHECKOUT_URL;
-      return;
-    }
-    setAvisoAberto(true);
+    window.location.assign(CHECKOUT_URL);
   };
 
   return (
@@ -538,36 +531,6 @@ function Index() {
         </button>
       </div>
 
-      {avisoAberto && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Checkout em configuração"
-          onClick={() => setAvisoAberto(false)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-wine/70 px-6"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md rounded-2xl bg-card p-8 text-center shadow-soft"
-          >
-            <p className="eyebrow text-primary">Quase lá</p>
-            <h2 className="mt-2 font-display text-2xl">
-              Checkout em configuração
-            </h2>
-            <p className="mt-3 text-sm text-muted-foreground">
-              O material está pronto. Assim que você me passar o link de
-              pagamento, este botão vai levar direto para a compra.
-            </p>
-            <button
-              type="button"
-              onClick={() => setAvisoAberto(false)}
-              className="mt-6 rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground"
-            >
-              Fechar
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
